@@ -16,10 +16,10 @@ public class App {
     public static void main(String[] args) throws Exception {
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
+        env.setParallelism(4);
 
-        final String fileNameInput = "file:///home/rhermes/madsci/thesis/data/mediawiki_history/2020-07.enwiki.2016-04.sorted.tsv";
-        final DataStream<String> linesIn = env.readTextFile(fileNameInput);
-
+        final String fileNameInput = "file:///Users/david/stuff/2020-07.enwiki.2016-04.tsv.bz2";
+        final DataStream<String> linesIn = env.readTextFile(fileNameInput).setParallelism(1);
 
         final SingleOutputStreamOperator<Event> jj = linesIn.map(value -> new Event(value));
 
