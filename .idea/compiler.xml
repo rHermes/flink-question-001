@@ -11,6 +11,7 @@
           <entry name="$MAVEN_REPOSITORY$/info/picocli/picocli-codegen/4.3.0/picocli-codegen-4.3.0.jar" />
           <entry name="$MAVEN_REPOSITORY$/info/picocli/picocli/4.3.0/picocli-4.3.0.jar" />
         </processorPath>
+        <module name="flink-question-001" />
         <module name="provw" />
         <module name="prow" />
       </profile>
@@ -18,6 +19,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="flink-question-001" options="-Aproject=org.example/prow" />
       <module name="provw" options="-Aproject=org.example/prow" />
       <module name="prow" options="-Aproject=org.example/prow" />
     </option>
